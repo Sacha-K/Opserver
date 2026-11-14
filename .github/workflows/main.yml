@@ -4,12 +4,16 @@ on: [push]
 
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: windows-2025
     steps:
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v5
       with:
-        dotnet-version: 8.0.x
-    - uses: actions/checkout@v3
-    - name: Build with dotnet
-      run: dotnet build
+        dotnet-version: 8.0.428
+    - uses: actions/checkout@v6
+    - name: dotnet restore
+      run: dotnet restore
+    - name: dotnet build
+      run: dotnet build --no-restore
+    - name: dotnet test
+      run: dotnet test --no-build
