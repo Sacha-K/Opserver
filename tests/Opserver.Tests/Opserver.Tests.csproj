@@ -2,7 +2,7 @@
   <PropertyGroup>
     <RootNamespace>Opserver.Tests</RootNamespace>
     <AssemblyName>Opserver.Tests</AssemblyName>
-    <TargetFrameworks>net8.0</TargetFrameworks>
+    <TargetFrameworks>net10.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/Opserver.Web/Opserver.Web.csproj" />

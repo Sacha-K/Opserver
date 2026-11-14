@@ -136,11 +136,11 @@ namespace Opserver
                     }
 
                     var knownProxies = forwardedHeaders.GetSection(nameof(ForwardedHeadersOptions.KnownProxies)).Get<List<string>>();
-                    var knownNetworks = forwardedHeaders.GetSection(nameof(ForwardedHeadersOptions.KnownNetworks)).Get<List<string>>();
+                    var knownNetworks = forwardedHeaders.GetSection("KnownNetworks").Get<List<string>>();
                     if (knownNetworks != null || knownProxies != null)
                     {
                         options.KnownProxies.Clear();
-                        options.KnownNetworks.Clear();
+                        options.KnownIPNetworks.Clear();
                     }
 
                     if (knownProxies != null)
@@ -157,7 +157,7 @@ namespace Opserver
                         foreach (var knownNetwork in knownNetworks)
                         {
                             var ipNet = IPNet.Parse(knownNetwork);
-                            options.KnownNetworks.Add(new Microsoft.AspNetCore.HttpOverrides.IPNetwork(ipNet.IPAddress, ipNet.CIDR));
+                            options.KnownIPNetworks.Add(new IPNetwork(ipNet.IPAddress, ipNet.CIDR));
                         }
                     }
                 }
