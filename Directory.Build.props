@@ -2,11 +2,11 @@
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Opserver.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)src\Opserver.ruleset</CodeAnalysisRuleSet>
     <!--<GenerateDocumentationFile>true</GenerateDocumentationFile>-->
     <PackageId>$(AssemblyName)</PackageId>
     <PackageProjectUrl>https://github.com/Opserver/Opserver/</PackageProjectUrl>
-    <PackageLicenseUrl>https://raw.github.com/Opserver/Opserver/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl>https://raw.github.com/Opserver/Opserver/main/LICENSE</PackageLicenseUrl>
 
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/Opserver/Opserver/</RepositoryUrl>
@@ -17,14 +17,14 @@
     <IncludeSymbols>false</IncludeSymbols>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <!--<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>-->
+
+    <!-- Dependency security: audit direct and transitive packages on restore. -->
+    <NuGetAudit>true</NuGetAudit>
+    <NuGetAuditMode>all</NuGetAuditMode>
   </PropertyGroup>
   <!-- File nesting! -->
   <ItemGroup>
     <ProjectCapability Include="DynamicDependentFile" />
     <ProjectCapability Include="DynamicFileNesting" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.5.119" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
   </ItemGroup>
 </Project>
