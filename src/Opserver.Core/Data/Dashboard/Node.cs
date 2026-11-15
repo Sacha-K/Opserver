@@ -53,7 +53,7 @@ namespace Opserver.Data.Dashboard
         // TODO: Implement
         public string MonitorStatusReason => null;
 
-        public bool IsVM => VMHostID.HasValue() || (Manufacturer?.Contains("VMware") ?? false);
+        public bool IsVM => VMHostID.HasValue() || (Manufacturer?.Contains("VMware") ?? false) || Model == "Virtual Machine";
         public bool HasValidMemoryReading => MemoryUsed >= 0;
 
         public Node VMHost { get; internal set; }
